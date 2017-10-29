@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Routing
 app.get("/api", function(req, res){
-	res.sendFile(path.join(__dirname, '../app/data/friends.js'))
+	res.sendFile(path.join(__dirname, '../data/friends.js'))
 });
 // Routing
 app.get("/public/survey", function(req, res){
