@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 3000;
 var path = require('path');
 var friends = require('../data/friends.js');
 // var answers = require('./htmlRoutes.js');
-
+console.log(friends);
 // Arrays for answers
 var friend = [];
 
