@@ -66,11 +66,11 @@ function comparison() {
 		for (var k = 0; k < 10; k++) {
 			totalDifference += Math.abs(newAnswerArray[k] - friends[i].scores[k]);
 			console.log(totalDifference);
-			if (totalDifference < matchDifference) {
+		}
+		if (totalDifference <= matchDifference) {
 				matchDifference = totalDifference;
 				matchName = friends[i].name;
 			}
-		}
 	}
 	console.log(matchName);
 };
