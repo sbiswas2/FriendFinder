@@ -40,6 +40,11 @@ function comparison() {
 	newAnswer = answers[0];
 	//console.log(newAnswer);
 	var newAnswerArray = [];
+	var matchDifference = 1000;
+	var matchName = '';
+	// for(var j = 1; j <= 10; j++) {
+	// 	newAnswerArray.push(parseInt(newAnswer.q+j));
+	// };
 
 	newAnswerArray.push(parseInt(newAnswer.q1));
 	newAnswerArray.push(parseInt(newAnswer.q2));
@@ -56,7 +61,17 @@ function comparison() {
 	console.log("-----------------------------");
 	
 	for (var i = 0; i < friends.length; i++) {
-		console.log(friends[i].scores);
+		console.log(friends[i].name + ' ' + friends[i].scores);
+		totalDifference = 0;
+		for (var k = 0; k < 10; k++) {
+			totalDifference += Math.abs(newAnswerArray[k] - friends[i].scores[k]);
+			console.log(totalDifference);
+			if (totalDifference < matchDifference) {
+				matchDifference = totalDifference;
+				matchName = friends[i].name;
+			}
+		}
 	}
+	console.log(matchName);
 };
 
