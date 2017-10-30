@@ -15,7 +15,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routing
-app.get("/public/survey", function(req, res){
+app.get("/", function(req, res){
+	res.sendFile(path.join(__dirname, '../public/home.html'))
+});
+
+// Routing
+app.get("/survey", function(req, res){
 	res.sendFile(path.join(__dirname, '../public/survey.html'))
 });
 
