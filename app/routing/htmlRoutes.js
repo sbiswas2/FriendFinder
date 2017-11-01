@@ -1,39 +1,42 @@
-// Dependencies
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var PORT = process.env.PORT || 3000;
+// // Dependencies
+// var express = require('express');
+// var bodyParser = require('body-parser');
+// var app = express();
+// var PORT = process.env.PORT || 3000;
 var path = require('path');
 var friends = require('../data/friends.js');
-var totalDifference = 0;
+// var totalDifference = 0;
 
 var answers = [];
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
-app.get("/", function(req, res){
-	res.sendFile(path.join(__dirname, '../public/home.html'))
-});
+module.exports = function(app) {
 
-app.get("/survey", function(req, res){
-	res.sendFile(path.join(__dirname, '../public/survey.html'))
-});
+	app.get("/", function(req, res){
+		res.sendFile(path.join(__dirname, '../public/home.html'))
+	});
 
-app.post("/public/survey", function (req, res){
-	var friend = req.body;
-	answers.push(friend);
-	var theirFriend = comparison();
-	res.json({ result: theirFriend });
-	console.log(theirFriend);
-	// could not get alert function to work, keeps saying alert is undefined
-	// alert("Your matched friend is: " + theirFriend);
-});
+	app.get("/survey", function(req, res){
+		res.sendFile(path.join(__dirname, '../public/survey.html'))
+	});
+
+	app.post("/public/survey", function (req, res){
+		var friend = req.body;
+		answers.push(friend);
+		var theirFriend = comparison();
+		res.json({ result: theirFriend });
+		console.log(theirFriend);
+		// could not get alert function to work, keeps saying alert is undefined
+		// alert("Your matched friend is: " + theirFriend);
+	});
+}
 
 // App listening
-app.listen(PORT, function(){
-	console.log("App is listening on PORT " + PORT);
-});
+// app.listen(PORT, function(){
+// 	console.log("App is listening on PORT " + PORT);
+// });
 
 function comparison() {
 	newAnswer = answers[0];
