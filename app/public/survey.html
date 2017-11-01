@@ -159,23 +159,8 @@ $('#submitButton').on('click', function(event){
 	console.log(profile);
 		$.post('/public/survey', profile)
 		.done(function(data) {
-			console.log(data);
-		if (data === true) {
-			alert("Here's your friend")
-		} else if (data === false) {
-			alert("You have no friends")
-		};
-			$('#q1').val('')
-			$('#q2').val('')
-			$('#q3').val('')
-			$('#q4').val('')
-			$('#q5').val('')
-			$('#q6').val('')
-			$('#q7').val('')
-			$('#q8').val('')
-			$('#q9').val('')
-			$('#q10').val('')
-		})
+            alert("Your friend match is " + data.result);
+        })
 });
 </script>
 
