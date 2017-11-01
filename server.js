@@ -12,8 +12,6 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('app'));
 
-// catching error at this point, cannot figure it out
-// please run htmlRoutes.js to run app for grading
 require('./app/routing/apiRoutes.js')(app); 
 require('./app/routing/htmlRoutes.js')(app);
 
