@@ -1,16 +1,8 @@
 // // Dependencies
-// var express = require('express');
-// var bodyParser = require('body-parser');
-// var app = express();
-// var PORT = process.env.PORT || 3000;
 var path = require('path');
 var friends = require('../data/friends.js');
-// var totalDifference = 0;
 
 var answers = [];
-
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
 
 module.exports = function(app) {
 
@@ -28,15 +20,8 @@ module.exports = function(app) {
 		var theirFriend = comparison();
 		res.json({ result: theirFriend });
 		console.log(theirFriend);
-		// could not get alert function to work, keeps saying alert is undefined
-		// alert("Your matched friend is: " + theirFriend);
 	});
 }
-
-// App listening
-// app.listen(PORT, function(){
-// 	console.log("App is listening on PORT " + PORT);
-// });
 
 function comparison() {
 	newAnswer = answers[0];
